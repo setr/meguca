@@ -196,10 +196,11 @@ module.exports = function(isMobile) {
 		{
 			id: 'theme',
 			// Arrays will turn into selection boxes
-			type: [
-				'moe', 'gar', 'mawaru', 'moon', 'ashita', 'console', 'tea',
-				'higan', 'ocean', 'rave', 'tavern', 'glass'
-			],
+			// type: [
+			// 	'moe', 'gar', 'mawaru', 'moon', 'ashita', 'console', 'tea',
+			// 	'higan', 'ocean', 'rave', 'tavern', 'glass'
+			// ]
+			type: [ 'tea', 'moe', 'gar', 'moon', 'ashita'],
 			tab: 1,
 			default: hotConfig.DEFAULT_CSS,
 			exec(theme) {

@@ -100,18 +100,21 @@ class RenderBase {
 
 		// Store time of render to prevent loading old sessions on browser
 		// resume.
+		
 		let html = this.templatePart();
 
 		// Notify the user, he/she/it should consider a brain transplant
-		if (isRetarded) {
+		// false to never reach this statement
+		if ( false && isRetarded) {
 			html += '<div class="retardedBrowser">'
 				+ lang[this.lang].worksBestWith + ' ';
 			for (let browser of ['chrome', 'firefox', 'opera']) {
 				html += `<img src="${config.MEDIA_URL}css/ui/${browser}.png">`
 			}
 			html += '</div>';
-		}
+		} 
 		html += this.templatePart();
+		
 
 		if (!isMobile)
 			html += this.imageBanner() + this.templatePart();

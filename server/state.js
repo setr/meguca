@@ -300,6 +300,36 @@ function make_navigation_html() {
 	bits += ']</b>';
 	return bits;
 }
+//  To switch to PSUEDO_BOARDS first, then MEGUCA_BOARDS
+// 
+// function make_navigation_html() {
+// 	let bits = '<b id="navTop">[';
+// 	// Actual boards
+// 	const BOARDS = config.BOARDS,
+// 		PB = config.PSUEDO_BOARDS;
+// 	// Add custom URLs to board navigation
+// 	for (let i = 0, l = PB.length; i < l; i++) {
+// 		let item = PB[i];
+// 		if (i > 0 )
+// 			bits += ' / ';
+// 		bits += `<a href="${item[1]}">${item[0]}</a>`;
+// 		//bits += ` / <a href="${item[1]}">${item[0]}</a>`;
+// 	}
+// 	bits += ' / '
+// 	// Add normal meguca boards
+// 	for (let i = 0, l = BOARDS.length; i < l; i++) {
+// 		let board = BOARDS[i];
+// 		if (board == config.STAFF_BOARD
+// 			|| (HOT.hidden_boards && HOT.hidden_boards.indexOf(board) > -1)
+// 		)
+// 			continue;
+// 		if (i > 0)
+// 			bits += ' / ';
+// 		bits += `<a href="../${board}/" class="history">${board}</a>`;
+// 	}
+// 	bits += ']</b>';
+// 	return bits;
+// }
 
 // Hardcore pornography
 function buildOptions(lang, options) {
