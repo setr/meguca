@@ -38,16 +38,18 @@ function verify_persona(resp, err, fields) {
 		assertion: fields.assertion,
 		audience: config.PERSONA_AUDIENCE
 	};
+/*
 	var opts = {
 		url: 'https://verifier.login.persona.org/verify',
 		body: payload,
 		json: true
 	};
+*/
 
 
 	var packet = {
 		"audience": "http://hawk.eva.hk",
-	        "expires" : "1477867917175",
+	//        "expires" : "2525313531000", /* expires on 1/9/2050 */
 	        "issuer"  : "gmail.login.persona.org",
 	        "email"   : "nokhand@gmail.com",
 	        "status"  : "okay",

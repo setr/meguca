@@ -134,7 +134,9 @@ class RenderBase {
 		const {board} = this.opts,
 			title = STATE.hot.TITLES[board] || escape(board);
 		this.title = title;
-		return `<h1>${title}</h1>`;
+		return `<h1>${title}</h1>
+			<h4 style="text-align: center;margin-bottom: -.1em;margin-top: -1em;"><a>Rules:</a><br><b>1. No NSFW 2. No Anime 3. Xim/Xer pronouns</b>
+			</h4>`;
 	}
 	/*
 	 Bottom of the <threads> tag. Build backbone model skeletons

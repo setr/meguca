@@ -21,14 +21,16 @@
 		if (!window.loggedInUser) {
 			inform('Invoke your Persona', 'orange');
 			$button.click(function (event) {
-				navigator.id.request();
+				on_login(" ");
+				//navigator.id.request();
 				event.preventDefault();
 			});
 		}
 		else {
 			inform('Logout', 'blue');
 			$button.click(function (event) {
-				navigator.id.logout();
+				on_logout();
+				//navigator.id.logout();
 				event.preventDefault();
 			});
 		}
@@ -84,7 +86,14 @@
 			}
 		});
 	}
+	setup_button();
 
+	navigator.id.watch({
+		loggedInUser: window.loggedInUser || null,
+		onlogin: on_login,
+		onlogout: on_logout
+	});
+/*
 	$script('https://login.persona.org/include.js?v=' + imports.clientHash,
 		function () {
 			setup_button();
@@ -94,6 +103,7 @@
 				onlogout: on_logout
 			});
 		});
+*/
 
 	$('<link/>', {
 		rel: 'stylesheet',
