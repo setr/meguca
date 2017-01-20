@@ -277,7 +277,41 @@ function build_FAQ(faq) {
 	return list;
 }
 
+function merge_boardlists(){
+	// Actual boards
+	const BOARDS = config.BOARDS,
+		PB = config.PSUEDO_BOARDS;
+	let t = BOARDS.map(function(board) {
+		if (!(board == config.STAFF_BOARD || 
+			(HOT.hidden_boards && HOT.hidden_boards.indexOf(board) > -1))){
+			let link = `<a href="../${board}/" class="history">${board}</a>`;
+			return [board, link];
+	}});
+	let t2 = PB.map(function(item) {
+		let board = item[0];
+		let url = item[1];
+		let link = ` <a href="${url}">${board}</a>`;
+		return [board, link];
+	});
+	var temp = t.concat(t2)
+	temp = temp.sort(function(a, b){
+		if (a[0] > b[0]) { return 1; }
+		if (a[0] < b[0]) { return -1; }
+		return 0;
+	});
+	let bits = '<b id="navTop">[';
+	for (let i = 0; i < temp.length; i++) {
+		if (i > 0)
+			bits += ' / ';
+		bits += temp[i][1];
+	}
+	bits += ']</b>';
+	return bits;
+}
+	
 function make_navigation_html() {
+	return merge_boardlists();
+	/*
 	let bits = '<b id="navTop">[';
 	// Actual boards
 	const BOARDS = config.BOARDS,
@@ -299,6 +333,7 @@ function make_navigation_html() {
 	}
 	bits += ']</b>';
 	return bits;
+	*/
 }
 //  To switch to PSUEDO_BOARDS first, then MEGUCA_BOARDS
 // 
