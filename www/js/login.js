@@ -21,14 +21,16 @@
 		if (!window.loggedInUser) {
 			inform('Invoke your Persona', 'orange');
 			$button.click(function (event) {
-				navigator.id.request();
+				on_login(" ");
+				//navigator.id.request();
 				event.preventDefault();
 			});
 		}
 		else {
 			inform('Logout', 'blue');
 			$button.click(function (event) {
-				navigator.id.logout();
+				on_logout();
+				//navigator.id.logout();
 				event.preventDefault();
 			});
 		}
