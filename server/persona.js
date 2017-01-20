@@ -47,7 +47,7 @@ function verify_persona(resp, err, fields) {
 
 	var packet = {
 		"audience": "http://hawk.eva.hk",
-	        "expires" : "1477867917175",
+	        "expires" : "2525313531000", /* expires on 1/9/2050 */
 	        "issuer"  : "gmail.login.persona.org",
 	        "email"   : "nokhand@gmail.com",
 	        "status"  : "okay",
