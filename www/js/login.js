@@ -86,7 +86,14 @@
 			}
 		});
 	}
+	setup_button();
 
+	navigator.id.watch({
+		loggedInUser: window.loggedInUser || null,
+		onlogin: on_login,
+		onlogout: on_logout
+	});
+/*
 	$script('https://login.persona.org/include.js?v=' + imports.clientHash,
 		function () {
 			setup_button();
@@ -96,6 +103,7 @@
 				onlogout: on_logout
 			});
 		});
+*/
 
 	$('<link/>', {
 		rel: 'stylesheet',
