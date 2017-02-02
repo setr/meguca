@@ -281,16 +281,16 @@ function merge_boardlists(){
 	// Actual boards
 	const BOARDS = config.BOARDS,
 		PB = config.PSUEDO_BOARDS;
-	let t = BOARDS.map(function(board) {
+	var t = BOARDS.map(function(board) {
 		if (!(board == config.STAFF_BOARD || 
 			(HOT.hidden_boards && HOT.hidden_boards.indexOf(board) > -1))){
-			let link = `<a href="../${board}/" class="history">${board}</a>`;
+			var link = `<a href="../${board}/" class="history">${board}</a>`;
 			return [board, link];
 	}});
-	let t2 = PB.map(function(item) {
-		let board = item[0];
-		let url = item[1];
-		let link = ` <a href="${url}">${board}</a>`;
+	var t2 = PB.map(function(item) {
+		var board = item[0];
+		var url = item[1];
+		var link = ` <a href="${url}">${board}</a>`;
 		return [board, link];
 	});
 	var temp = t.concat(t2)
@@ -299,8 +299,8 @@ function merge_boardlists(){
 		if (a[0] < b[0]) { return -1; }
 		return 0;
 	});
-	let bits = '<b id="navTop">[';
-	for (let i = 0; i < temp.length; i++) {
+	var bits = '<b id="navTop">[';
+	for (var i = 0; i < temp.length; i++) {
 		if (i > 0)
 			bits += ' / ';
 		bits += temp[i][1];
