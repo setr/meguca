@@ -290,7 +290,7 @@ function merge_boardlists(){
 	var t2 = PB.map(function(item) {
 		var board = item[0];
 		var url = item[1];
-		var link = ` <a href="${url}">${board}</a>`;
+		var link = `<a href="${url}">${board}</a>`;
 		return [board, link];
 	});
 	var temp = t.concat(t2)
@@ -304,6 +304,18 @@ function merge_boardlists(){
 		if (i > 0)
 			bits += ' / ';
 		bits += temp[i][1];
+	}
+	
+	// Additional links rendered like boards	
+	if (config.CAT2_BOARDS){
+		bits += '] ['
+		for (var i = 0; i < config.CAT2_BOARDS.length; i++){
+			var t = config.CAT2_BOARDS[i]
+			var link = `<a href="${t[1]}">${t[0]}</a>`;
+			if (i > 0) 
+				bits += ' / ';
+			bits += link
+		}
 	}
 	bits += ']</b>';
 	return bits;
